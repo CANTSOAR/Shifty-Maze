@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Good Luck</title>
+<meta charset="UTF-8">
+{% endblock %}
+
+{% block body %}
+
+<div id="loadingthing" style="position:absolute; top:0px; left:0px; width:100%; height:100%; z-index:2000;"></div>
+
+<div id="framecontainer">
+    {% for value,diff in diff.items() %}
+    <h1 id="mazetext">Difficulty selected: {{ value }}</h1>
+    {% endfor %}
+    <div id="frame">
+        {% for row in boxes %}
+            {% for box in row %}
+                <div class="mazebox" style="--width: {{ boxwidth }}px" id="{{ box }}"></div>
+            {% endfor %}
+        {% endfor %}
+    </div>
+    <div id="controls">
+        <form action="/maze" method="POST" id="controls">
+            <button name="{{ [boxes, current] }}" value="up" class="movement" id="ud"></button>
+            <button name="{{ [boxes, current] }}" value="left" class="movement" id="lr"></button>
+            <button name="{{ [boxes, current] }}" value="right" class="movement" id="lr"></button>
+            <button name="{{ [boxes, current] }}" value="down" class="movement" id="ud"></button>
+        </form>
+    </div>
+
+</div>
+
+{% endblock %}

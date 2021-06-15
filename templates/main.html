@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Shifting Maze</title>
+{% endblock %}
+
+{% block body %}
+<h1 id="intro">Welcome to Pain</h1>
+
+<div id="diffcontainer">
+    <form action="https://www.youtube.com/watch?v=1OedkyxEqtA" method="POST">
+        <button id="easy" class="diffbutton" type="submit"><span>easy</span></button>
+    </form>
+    <form action="/maze" method="POST">
+        <input id="med" class="diffbutton" type="submit" name="Eh" value="med">
+        <input id="hard" class="diffbutton" type="submit" name="Yeah Ok Good Luck Bud" value="hard">
+        <input id="test" class="diffbutton" type="submit" name="idek if this works" value="test">
+    </form>
+</div>
+{% endblock %}
